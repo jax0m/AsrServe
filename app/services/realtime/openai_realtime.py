@@ -9,15 +9,12 @@ import base64
 import json
 import logging
 import uuid
-from typing import Any, Optional
+from typing import Any
 
 import numpy as np
 from fastapi import WebSocket, WebSocketDisconnect
 
-from app.core.config import settings
 from app.services.asr.runtime import get_runtime_router
-
-from .protocol import StreamError
 
 logger = logging.getLogger(__name__)
 
@@ -75,34 +72,40 @@ class OpenAIRealtimeSession:
 
     async def send_delta(self, delta: str) -> None:
         """Send a transcription delta event."""
-        await self.send_event({
-            "type": "conversation.item.input_audio_transcription.delta",
-            "item_id": self.item_id,
-            "content_index": 0,
-            "delta": delta,
-        })
+        await self.send_event(
+            {
+                "type": "conversation.item.input_audio_transcription.delta",
+                "item_id": self.item_id,
+                "content_index": 0,
+                "delta": delta,
+            }
+        )
 
     async def send_completed(self, transcript: str, language: str = "en") -> None:
         """Send a transcription completed event."""
-        await self.send_event({
-            "type": "conversation.item.input_audio_transcription.completed",
-            "item_id": self.item_id,
-            "content_index": 0,
-            "transcript": transcript,
-            "language": language,
-        })
+        await self.send_event(
+            {
+                "type": "conversation.item.input_audio_transcription.completed",
+                "item_id": self.item_id,
+                "content_index": 0,
+                "transcript": transcript,
+                "language": language,
+            }
+        )
 
     async def send_failed(self, code: str, message: str) -> None:
         """Send a transcription failed event."""
-        await self.send_event({
-            "type": "conversation.item.input_audio_transcription.failed",
-            "item_id": self.item_id,
-            "content_index": 0,
-            "error": {
-                "code": code,
-                "message": message,
-            },
-        })
+        await self.send_event(
+            {
+                "type": "conversation.item.input_audio_transcription.failed",
+                "item_id": self.item_id,
+                "content_index": 0,
+                "error": {
+                    "code": code,
+                    "message": message,
+                },
+            }
+        )
 
     async def handle_session_update(self, data: dict[str, Any]) -> None:
         """Handle a session.update event."""

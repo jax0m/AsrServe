@@ -23,7 +23,6 @@ from .core.exceptions import (
 from .core.executor import shutdown_executor
 from .core.i18n import t
 from .core.logging import setup_logging
-from .api.v1 import api_router
 from .services.asr.runtime import get_runtime_router
 
 # 忽略 Pydantic V2 兼容性警告
