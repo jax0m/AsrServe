@@ -35,9 +35,7 @@ def download_models() -> bool:
         if asset.model_id not in missing_ids:
             continue
         try:
-            hf_snapshot_download(
-                asset.model_id, revision=asset.revision, local_dir=asset.local_dir
-            )
+            hf_snapshot_download(asset.model_id, revision=asset.revision, local_dir=asset.local_dir)
             print("Downloaded", asset.model_id)
         except Exception as error:
             print("Model download failed:", asset.model_id, str(error))
@@ -47,4 +45,3 @@ def download_models() -> bool:
         return False
     print("All required models are ready")
     return True
-

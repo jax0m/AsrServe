@@ -81,7 +81,7 @@ R2T2 revision is fixed at `185ce639118ad1362d049ca0d8ed04b6ec5cd6c9`; Nemotron r
 
 ## 原生 CPU / Native CPU
 
-需要 Python 3.11–3.12、uv、Rust、FFmpeg；Linux 还需 libsndfile 和 OpenBLAS 开发库（Debian/Ubuntu：`libsndfile1 libopenblas-dev`）。macOS 支持 Apple Silicon。
+需要 Python 3.11-3.12、uv、Rust、FFmpeg；Linux 还需 libsndfile 和 OpenBLAS 开发库（Debian/Ubuntu：`libsndfile1 libopenblas-dev`）。macOS 支持 Apple Silicon。
 
 Requires Python 3.11–3.12, uv, Rust, FFmpeg; Linux also requires libsndfile and OpenBLAS development libraries (Debian/Ubuntu: `libsndfile1 libopenblas-dev`). macOS supports Apple Silicon.
 

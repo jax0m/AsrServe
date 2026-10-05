@@ -41,7 +41,7 @@ Errors return `{"code":"capacity_exceeded","error":"..."}` and close the connect
 
 ## 说话人标签 / Speaker Labels
 
-Nemotron 使用 1.04 秒缓冲模式，覆盖到语句尾部后发送该语句的主讲者标签。每个有文字的语句一个标签，通常比文字晚约 1–2 秒；全部标签先于 `done` 发送。`speaker:null` 表示无法判断或分离失败，文字转写继续。
+Nemotron 使用 1.04 秒缓冲模式，覆盖到语句尾部后发送该语句的主讲者标签。每个有文字的语句一个标签，通常比文字晚约 1-2 秒；全部标签先于 `done` 发送。`speaker:null` 表示无法判断或分离失败，文字转写继续。
 
 Nemotron uses a 1.04-second buffer mode, sending the primary speaker label for an utterance after covering its tail. One label per utterance with text, typically arriving 1–2 seconds after the text; all labels are sent before `done`. `speaker:null` indicates unable to determine or separation failed; text transcription continues.
 
