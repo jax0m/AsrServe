@@ -86,7 +86,7 @@ CT-Transformer reuses the previous ~292 MB punctuation weights, pinned to ModelS
 
 ## 原生 CPU / Native CPU
 
-需要 Python 3.11–3.12、uv、Rust、FFmpeg；Linux 还需 libsndfile 和 OpenBLAS 开发库（Debian/Ubuntu：`libsndfile1 libopenblas-dev`）。macOS 支持 Apple Silicon。
+需要 Python 3.11-3.12、uv、Rust、FFmpeg；Linux 还需 libsndfile 和 OpenBLAS 开发库（Debian/Ubuntu：`libsndfile1 libopenblas-dev`）。macOS 支持 Apple Silicon。
 
 Requires Python 3.11–3.12, uv, Rust, FFmpeg; Linux also requires libsndfile and OpenBLAS development libraries (Debian/Ubuntu: `libsndfile1 libopenblas-dev`). macOS supports Apple Silicon.
 
@@ -117,6 +117,7 @@ When authentication is configured, add `Authorization: Bearer <API_KEY>`. See [R
 The launcher loads the private inference engine and public API sequentially; if any process fails, all child processes are shut down. The private engine only listens on `127.0.0.1:8001` inside the container; health check waits for model readiness with a 600-second startup grace period.
 
 CPU 推理不可中途抢占，同时跑实时与离线会增加延迟。历史 M5 Pro 短样本纯识别 RTF 约 0.08–0.13；Linux amd64 完整 5 分钟录音约耗时 310 秒，不能按 Mac 结果承诺实时性能。Linux arm64 已验证构建和动态库加载，完整模型链路尚未验收。
+CPU 推理不可中途抢占，同时跑实时与离线会增加延迟。历史 M5 Pro 短样本纯识别 RTF 约 0.08-0.13；Linux amd64 完整 5 分钟录音约耗时 310 秒，不能按 Mac 结果承诺实时性能。Linux arm64 已验证构建和动态库加载，完整模型链路尚未验收。
 
 CPU inference cannot be preempted mid-execution; running realtime and offline simultaneously increases latency. Historical M5 Pro short-sample pure recognition RTF is approximately 0.08–0.13; Linux amd64 full 5-minute recording takes approximately 310 seconds—realtime performance cannot be guaranteed based on Mac results. Linux arm64 build and dynamic library loading are verified; full model pipeline not yet accepted.
 
